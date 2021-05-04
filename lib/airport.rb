@@ -2,19 +2,25 @@ class Airport
 	attr_reader :current_capacity
 	MAX_CAPACITY = 10
 
-	def initialize(current_capacity = 0)
+	def initialize(current_capacity = 5)
 		@current_capacity = current_capacity
 	end
 
 	def accept_land(plane)
-		@current_capacity < MAX_CAPACITY ? "#{plane.name} has landed" : "request denied. airport full"
+		@current_capacity < MAX_CAPACITY ? "#{plane.name} has landed" : full_capacity
 	end
 
 	def take_off(plane)
-		"#{plane.name} has taken off"
+		@current_capacity != 0 ? "#{plane.name} has taken off" : zero_capacity
 	end
 
-	def print_cap
-		puts MAX_CAPACITY
+private
+
+	def full_capacity
+		"request denied. airport full"
+	end
+
+	def zero_capacity
+		"request denied. airport empty"
 	end
 end
