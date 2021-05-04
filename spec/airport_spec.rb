@@ -7,6 +7,13 @@ describe Airport do
 		it 'should instruct a plane to land' do
 			expect(subject.accept_land(plane)).to eq "test has landed"
 		end
+
+		context 'when airport capacity is full' do
+			a = Airport.new(10)
+			it 'should refuse a land request' do
+				expect(a.accept_land(plane)).to eq "request denied. airport full"
+			end
+		end
 	end
 
 	describe '#take_off' do

@@ -1,4 +1,6 @@
 | Objects | Actions |
 ---------------------
-| Airport | land |
-| Plane |  |
+| Airport | request_land |
+|  | take_off |
+|  | capacity_check |
+
