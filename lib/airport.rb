@@ -1,14 +1,13 @@
 class Airport
-	attr_reader :current_capacity
-	MAX_CAPACITY = 10
+	attr_reader :current_capacity, :max_capacity
 
-	def initialize(current_capacity = 5)
-		@max_capacity = 10
+	def initialize(current_capacity = 5, max_capacity = 10)
+		@max_capacity = max_capacity
 		@current_capacity = current_capacity
 	end
 
 	def accept_land(plane)
-		@current_capacity < MAX_CAPACITY ? "#{plane.name} has landed" : full_capacity
+		@current_capacity < @max_capacity ? "#{plane.name} has landed" : full_capacity
 	end
 
 	def take_off(plane)

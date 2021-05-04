@@ -5,6 +5,13 @@ describe Airport do
 	let(:empty_airport) {Airport.new(0)}
 	let(:full_airport) {Airport.new(10)}
 
+	describe '#initialize' do
+		it 'should allow airports to be made with different max capacities' do
+			large_airport = Airport.new(0, 100)
+			expect(large_airport.max_capacity).to be 100
+		end
+	end
+
 	describe '#accept_land' do
 		it 'should instruct a plane to land' do
 			expect(subject.accept_land(plane)).to eq "test has landed"
