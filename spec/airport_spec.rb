@@ -8,4 +8,10 @@ describe Airport do
 			expect(subject.accept_land(plane)).to eq "test has landed"
 		end
 	end
+
+	describe '#take_off' do
+		it 'should instruct a plane to take off' do
+			expect(subject.take_off(plane)).to eq "test has taken off"
+		end
+	end
 end
