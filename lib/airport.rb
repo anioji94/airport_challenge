@@ -1,3 +1,6 @@
+require_relative('./plane.rb')
+require_relative('./weather.rb')
+
 class Airport
 	attr_reader :current_capacity, :max_capacity
 
@@ -7,6 +10,7 @@ class Airport
 	end
 
 	def accept_land(plane)
+		weather_report
 		@current_capacity < @max_capacity ? "#{plane.name} has landed" : full_capacity
 	end
 
@@ -15,6 +19,18 @@ class Airport
 	end
 
 private
+
+	def weather_report
+		stormy_weather if weather_clear? == false
+	end
+
+	def weather_clear?(weather = Weather.new)
+		return false
+	end
+
+	def stormy_weather
+		"request denied. stormy weather"
+	end
 
 	def full_capacity
 		"request denied. airport full"

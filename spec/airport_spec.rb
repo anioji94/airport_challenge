@@ -4,6 +4,8 @@ describe Airport do
   let(:plane) {double :plane, name: 'test'}
 	let(:empty_airport) {Airport.new(0)}
 	let(:full_airport) {Airport.new(10)}
+	let(:weather) {double :weather, report: 'stormy'}
+	let(:stormy_airport) {Airport.new}
 
 	describe '#initialize' do
 		it 'should allow airports to be made with different max capacities' do
@@ -22,6 +24,10 @@ describe Airport do
 				expect(full_airport.accept_land(plane)).to eq "request denied. airport full"
 			end
 		end
+
+		context 'when weather is stormy' do
+			# prevent landing, weather is stormy
+		end
 	end
 
 	describe '#take_off' do
@@ -32,6 +38,12 @@ describe Airport do
 		context 'when airport capacity is empty' do
 			it 'should refuse a take off request' do
 				expect(empty_airport.take_off(plane)).to eq "request denied. airport empty"
+			end
+		end
+
+		context 'when weather is stormy' do
+			it 'should refuse a take off request' do
+				expect(stormy_airport.take_off(plane)).to eq "request denied. stormy weather"
 			end
 		end
 	end
