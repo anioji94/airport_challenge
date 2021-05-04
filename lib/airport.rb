@@ -3,6 +3,7 @@ class Airport
 	MAX_CAPACITY = 10
 
 	def initialize(current_capacity = 5)
+		@max_capacity = 10
 		@current_capacity = current_capacity
 	end
 
