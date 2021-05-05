@@ -46,9 +46,9 @@ describe Airport do
 		end
 
 		context 'when weather is stormy' do
-			# it 'should refuse a take off request' do
-			# 	expect{stormy_airport.take_off(plane)}.to raise_error "request denied. stormy weather"
-			# end
+			it 'should refuse a take off request' do
+				expect{stormy_airport.take_off(plane)}.to raise_error "request denied. stormy weather"
+			end
 		end
 	end
 end

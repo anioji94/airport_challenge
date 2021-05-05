@@ -15,6 +15,7 @@ class Airport
 	end
 
 	def take_off(plane)
+		weather_report
 		@current_capacity != 0 ? "#{plane.name} has taken off" : zero_capacity
 	end
 
@@ -22,10 +23,6 @@ private
 
 	def weather_report
 		raise "request denied. stormy weather" if @weather.report == 'stormy'
-	end
-
-	def weather_clear
-		false
 	end
 
 	def stormy_weather
